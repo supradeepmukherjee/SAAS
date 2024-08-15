@@ -6,7 +6,7 @@ import { NextRequest, NextResponse } from "next/server"
 const prisma = new PrismaClient()
 
 cloudinary.config({
-    cloud_name: process.env.CLOUD_NAME,
+    cloud_name: process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME,
     api_key: process.env.CLOUD_KEY,
     api_secret: process.env.CLOUD_SECRET,
 })

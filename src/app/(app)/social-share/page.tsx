@@ -96,7 +96,7 @@ const SocialShare = () => {
                 Choose an Image File
               </span>
             </label>
-            <input type="file" onChange={fileUploadHandler} className="file-input file-input-bordered file-input-primary w-full" />
+            <input type="file" onChange={fileUploadHandler} className="file-input file-input-bordered file-input-primary w-full text-white" />
           </div>
           {isUploading && (
             <div className="mt-4">
@@ -110,12 +110,12 @@ const SocialShare = () => {
               </h2>
               <div className="form-control">
                 <select
-                  className="select select-bordered w-full"
+                  className="select select-bordered w-full text-white"
                   value={selectedFormat}
                   onChange={e => setSelectedFormat(e.target.value as SocialFormats)}
                 >
                   {Object.keys(socialFormats).map(format => (
-                    <option value={format} key={format}>
+                    <option value={format} key={format} className='text-white'>
                       {format}
                     </option>
                   ))}
