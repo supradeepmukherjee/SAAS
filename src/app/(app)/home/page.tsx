@@ -42,12 +42,12 @@ const Home = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4">
         {videos.length > 0 ?
-          <div className="text-center text-lg text-gray-500">
-            No Videos available
-          </div>
-          :
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {videos.map(v => <VidCard onDownload={downloadHandler} vid={v} key={v.id} />)}
+          </div>
+          :
+          <div className="text-center text-lg text-gray-500">
+            No Videos available
           </div>
         }
       </h1>
