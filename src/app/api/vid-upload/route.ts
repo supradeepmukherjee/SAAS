@@ -26,9 +26,9 @@ export async function POST(req: NextRequest) {
     })
     try {
         if (
-            process.env.CLOUD_NAME ||
-            process.env.CLOUD_KEY ||
-            process.env.CLOUD_SECRET
+            !process.env.NEXT_PUBLIC_CLOUDINARY_CLOUD_NAME ||
+            !process.env.CLOUD_KEY ||
+            !process.env.CLOUD_SECRET
         ) return NextResponse.json({
             error: 'Cloudinary Credentials not found',
             status: 500

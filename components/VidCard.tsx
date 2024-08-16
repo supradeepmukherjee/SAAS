@@ -64,12 +64,12 @@ const VidCard: FC<VidCardProps> = ({ vid, onDownload }) => {
         setPreviewError(false)
     }, [isHover])
     return (
-        <div
-            className='card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300'
-            onMouseEnter={() => setIsHover(true)}
-            onMouseLeave={() => setIsHover(false)}
-        >
-            <figure className="aspect-video relative">
+        <div className='card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300'>
+            <figure
+                className="aspect-video relative"
+                onMouseEnter={() => setIsHover(true)}
+                onMouseLeave={() => setIsHover(false)}
+            >
                 {isHover ? (
                     previewError ?
                         (
@@ -97,13 +97,13 @@ const VidCard: FC<VidCardProps> = ({ vid, onDownload }) => {
                         alt={title}
                     />
                 }
-                <div className="absolute bottom-2 right-2 bg-base-100 bg-opacity-70 px-2 py-1 rounded-lg text-sm flex items-center">
+                <div className="absolute bottom-2 right-2 bg-base-100 bg-opacity-70 px-2 py-1 rounded-lg text-sm flex items-center text-white">
                     <Clock size={16} className='mr-1' />
                     {formatDuration(duration)}
                 </div>
             </figure>
             <div className="card-body p-4">
-                <h2 className="card-title text-lg font-bold">
+                <h2 className="card-title text-lg font-bold text-white">
                     {title}
                 </h2>
                 <p className="text-sm text-base-content opacity-70 mb-4">
@@ -116,32 +116,29 @@ const VidCard: FC<VidCardProps> = ({ vid, onDownload }) => {
                     <div className="flex items-center">
                         <FileUp size={18} className='mr-2 text-primary' />
                         <div>
-                            <div className="font-semibold">
+                            <div className="font-semibold text-white">
                                 Original
                             </div>
-                            <div>
+                            <div className='text-white'>
                                 {formatSize(Number(origSize))}
                             </div>
                         </div>
                     </div>
                     <div className="flex items-center">
-                        <FileDown size={18} className='mr-2 text-secondary' />
+                        <FileDown size={18} className='mr-2 text-white' />
                         <div>
-                            <div className="font-semibold">
+                            <div className="font-semibold text-white">
                                 Compressed
                             </div>
-                            <div>
+                            <div className='text-white'>
                                 {formatSize(Number(compressedSize))}
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-between items-center mt-4">
+                <div className="flex justify-between items-center mt-4 text-white">
                     <div className="text-sm font-semibold">
-                        Compression:
-                        <span className="text-accent">
-                            {compressionPercentage}%
-                        </span>
+                        Compression: <span className="text-accent">{compressionPercentage}%</span>
                     </div>
                     <button
                         className="btn btn-primary btn-sm"

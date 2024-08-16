@@ -78,7 +78,7 @@ const VideoUpload = () => {
             type="file"
             accept="video/*"
             onChange={e => setFile(e.target.files?.[0] || null)}
-            className="file-input file-input-bordered w-full"
+            className="file-input file-input-bordered w-full text-white"
             required
           />
         </div>
