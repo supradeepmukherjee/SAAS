@@ -60,7 +60,6 @@ const VidCard: FC<VidCardProps> = ({ vid, onDownload }) => {
         [],
     )
     const compressionPercentage = Math.round((1 - Number(compressedSize) / Number(origSize)) * 100)
-    const previewErrorHandler = setPreviewError(false)
     useEffect(() => {
         setPreviewError(false)
     }, [isHover])
@@ -87,7 +86,7 @@ const VidCard: FC<VidCardProps> = ({ vid, onDownload }) => {
                             autoPlay
                             muted
                             loop
-                            onError={previewErrorHandler}
+                            onError={() => setPreviewError(true)}
                         />
                 )
                     :
@@ -148,7 +147,7 @@ const VidCard: FC<VidCardProps> = ({ vid, onDownload }) => {
                         className="btn btn-primary btn-sm"
                         onClick={() => onDownload(getFullVidURL(publicID), title)}
                     >
-                        <Download size={16}/>
+                        <Download size={16} />
                     </button>
                 </div>
             </div>

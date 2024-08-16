@@ -4,6 +4,7 @@ import { useClerk, useUser } from "@clerk/nextjs";
 import { ImageIcon, LayoutDashboardIcon, LogOutIcon, MenuIcon, Share2Icon, UploadIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import { Toaster } from 'react-hot-toast';
 import { ReactNode, useState } from "react";
 
 const sidebarItems = [
@@ -34,7 +35,6 @@ export default function AppLayout({
   const router = useRouter()
   const { signOut } = useClerk()
   const { user } = useUser()
-  const logoClickHandler = () => router.push('/')
   const signOutHandler = async () => await signOut()
   return (
     <div className="drawer lg:drawer-open">
@@ -127,6 +127,7 @@ export default function AppLayout({
           )}
         </aside>
       </div>
+      <Toaster position='top-center' />
     </div>
   )
 }

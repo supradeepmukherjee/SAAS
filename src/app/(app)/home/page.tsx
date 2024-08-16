@@ -2,13 +2,13 @@
 
 import axios from "axios"
 import { useCallback, useEffect, useState } from "react"
-import { Video } from "../../../../types"
+import toast from 'react-hot-toast'
 import VidCard from "../../../../components/VidCard"
+import { Video } from "../../../../types"
 
 const Home = () => {
   const [videos, setVideos] = useState<Video[]>([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
   const fetchVideos = useCallback(
     async () => {
       try {
@@ -18,7 +18,7 @@ const Home = () => {
         else throw new Error('Unexpected Format of Response')
       } catch (err) {
         console.log(err)
-        setError('Failed to fetch videos')
+        toast.error('Failed to Fetch videos')
       } finally {
         setLoading(false)
       }

@@ -2,6 +2,7 @@
 
 import { CldImage } from "next-cloudinary"
 import { useEffect, useRef, useState } from "react"
+import toast from 'react-hot-toast'
 
 const socialFormats = {
   'Instagram Square (1:1)': {
@@ -46,16 +47,22 @@ const SocialShare = () => {
     const formData = new FormData()
     formData.append('file', file)
     try {
+      const toastId = toast.loading('Uploading Image. Please wait...')
       const res = await fetch('/api/img-upload', {
         method: 'POST',
         body: formData
       })
-      if (!res.ok) throw new Error('Failed to upload image')
+      if (!res.ok) {
+        toast.error('Failed to upload image', { id: toastId })
+        throw new Error('Failed to upload image')
+      }
       const data = await res.json()
       setUploadedImg(data.publicID)
+      toast.success('Photo Uploaded Successfully', { id: toastId })
     } catch (err) {
+      toast.dismiss()
       console.log(err)
-      alert('Failed to upload img')
+      toast.error('Failed to upload image')
     } finally {
       setIsUploading(false)
     }

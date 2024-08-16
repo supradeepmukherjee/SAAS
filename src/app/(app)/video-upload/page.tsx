@@ -3,6 +3,7 @@
 import axios from "axios"
 import { useRouter } from "next/navigation"
 import { useState } from "react"
+import toast from 'react-hot-toast'
 
 const VideoUpload = () => {
   const [file, setFile] = useState<File | null>(null)
@@ -14,10 +15,7 @@ const VideoUpload = () => {
   const submitHandler = async (e: React.FormEvent) => {
     e.preventDefault()
     if (!file) return
-    if (file.size > max_size) {
-      // alert
-      return
-    }
+    if (file.size > max_size) return toast.error('Max. Size of video can be 60MB')
     setIsUploading(true)
     const formData = new FormData()
     formData.append('file', file)
@@ -25,10 +23,15 @@ const VideoUpload = () => {
     formData.append('desc', desc)
     formData.append('origSize', file.size.toString())
     try {
-      const res = await axios.post('/api/vid-upload', formData)
-      // check 200
+      toast.dismiss()
+      const toastId = toast.loading('Uploading Video. Please wait...')
+      const { status } = await axios.post('/api/vid-upload', formData)
+      if (status === 200) toast.success('Video Uploaded Successfully', { id: toastId })
+      router.push('/')
     } catch (err) {
+      toast.dismiss()
       console.log(err)
+      toast.error('Failed to upload video')
     } finally {
       setIsUploading(false)
     }
