@@ -13,7 +13,7 @@ const Home = () => {
     async () => {
       try {
         setLoading(true)
-        const { data } = await axios.get('/api/vid-upload')
+        const { data } = await axios.get('/api/videos')
         if (Array.isArray(data)) setVideos(data)
         else throw new Error('Unexpected Format of Response')
       } catch (err) {
