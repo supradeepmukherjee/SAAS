@@ -44,7 +44,7 @@ const VideoUpload = () => {
       <form onSubmit={submitHandler} className="space-y-4">
         <div>
           <label className="label">
-            <span className="label-text text-black font-semibold">
+            <span className="label-text font-semibold text-white">
               Title
             </span>
           </label>
@@ -58,7 +58,7 @@ const VideoUpload = () => {
         </div>
         <div>
           <label className="label">
-            <span className="label-text text-black font-semibold">
+            <span className="label-text font-semibold text-white">
               Description
             </span>
           </label>
@@ -70,7 +70,7 @@ const VideoUpload = () => {
         </div>
         <div>
           <label className="label">
-            <span className="label-text text-black font-semibold">
+            <span className="label-text font-semibold text-white">
               Video File
             </span>
           </label>
