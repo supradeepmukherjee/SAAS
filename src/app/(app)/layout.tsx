@@ -47,7 +47,7 @@ export default function AppLayout({
       />
       <div className="drawer-content flex flex-col">
         {/* navbar */}
-        <header className="w-full bg-base-200">
+        <header className="w-full bg-base-200 border-green-500 !border-b-2">
           <div className="navbar mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
             <div className="flex-none lg:hidden">
               <label htmlFor="sidebarDrawer" className="btn btn-square btn-ghost drawer-button">
@@ -90,7 +90,7 @@ export default function AppLayout({
       </div>
       <div className="drawer-side">
         <label htmlFor="sidebar-drawer" className="drawer-overlay"></label>
-        <aside className="w-64 h-full flex flex-col bg-base-200">
+        <aside className="w-64 h-full flex flex-col bg-base-200 border-green-500 !border-r-2">
           <div className="flex items-center justify-center py-4">
             <ImageIcon className="w-10 h-10 text-primary" />
           </div>

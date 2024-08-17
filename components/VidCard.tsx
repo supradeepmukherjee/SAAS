@@ -64,7 +64,7 @@ const VidCard: FC<VidCardProps> = ({ vid, onDownload }) => {
         setPreviewError(false)
     }, [isHover])
     return (
-        <div className='card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300'>
+        <div className='card bg-base-100 shadow-xl hover:shadow-2xl transition-all duration-300 border-green-500 border2'>
             <figure
                 className="aspect-video relative"
                 onMouseEnter={() => setIsHover(true)}
@@ -136,7 +136,7 @@ const VidCard: FC<VidCardProps> = ({ vid, onDownload }) => {
                         </div>
                     </div>
                 </div>
-                <div className="flex justify-between items-center mt-4 text-white">
+                <div className="flex justifyBetween items-center mt-4 text-white">
                     <div className="text-sm font-semibold">
                         Compression: <span className="text-accent">{compressionPercentage}%</span>
                     </div>
